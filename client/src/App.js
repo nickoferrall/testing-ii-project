@@ -5,16 +5,19 @@ class App extends Component {
   state = {
     strike: 0,
     ball: 0,
-    foul: 0,
-    hit: false
+    foul: 0
   };
 
   update = event => {
-    console.log('EVENT ', event.target.name);
     event.preventDefault();
     let currentButton = event.target.name;
-    console.log('Current button', currentButton);
-    if (currentButton === 'strike' && this.state.strike === 2) {
+    if (currentButton === 'hit') {
+      this.setState({
+        strike: 0,
+        ball: 0,
+        foul: 0
+      });
+    } else if (currentButton === 'strike' && this.state.strike === 2) {
       this.setState({
         strike: 0
       });
