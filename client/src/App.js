@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dashboard from './components/Dashboard';
+import Display from './components/Display';
 
 class App extends Component {
   state = {
@@ -38,11 +39,7 @@ class App extends Component {
       <div className="App">
         <h1>Vamos!</h1>
         <Dashboard update={this.update} />
-        <div>
-          <div>{`Strike: ${this.state.strike}`}</div>
-          <div>{`Ball: ${this.state.ball}`}</div>
-          <div>{`Foul: ${this.state.foul}`}</div>
-        </div>
+        <Display state={this.state} />
       </div>
     );
   }
