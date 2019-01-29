@@ -6,15 +6,27 @@ class App extends Component {
     strike: 0,
     ball: 0,
     foul: 0,
-    hit: 0
+    hit: false
   };
 
   update = event => {
-    console.log('EVCENT ', event.target.name);
+    console.log('EVENT ', event.target.name);
     event.preventDefault();
-    this.setState({
-      [event.target.name]: this.state[event.target.name] + 1
-    });
+    let currentButton = event.target.name;
+    console.log('Current button', currentButton);
+    if (currentButton === 'strike' && this.state.strike === 2) {
+      this.setState({
+        strike: 0
+      });
+    } else if (currentButton === 'ball' && this.state.ball === 3) {
+      this.setState({
+        ball: 0
+      });
+    } else {
+      this.setState({
+        [event.target.name]: this.state[event.target.name] + 1
+      });
+    }
   };
 
   render() {
@@ -24,10 +36,9 @@ class App extends Component {
         <h1>Vamos!</h1>
         <Dashboard update={this.update} />
         <div>
-          {this.state.strike}
-          {this.state.ball}
-          {this.state.foul}
-          {this.state.hit}
+          <div>{`Strike: ${this.state.strike}`}</div>
+          <div>{`Ball: ${this.state.ball}`}</div>
+          <div>{`Foul: ${this.state.foul}`}</div>
         </div>
       </div>
     );
