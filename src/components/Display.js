@@ -5,8 +5,8 @@ const Display = props => {
   return (
     <div>
       <div className="strike">Strike</div>
-      <div>{`Ball: ${props.state.ball}`}</div>
-      <div>{`Foul: ${props.state.foul}`}</div>
+      <div className="ball">{`Ball: ${props.state.ball}`}</div>
+      {/* <div className="foul">{`Foul: ${props.state.foul}`}</div> */}
     </div>
   );
 };

@@ -5,7 +5,12 @@ const Dashboard = props => {
   return (
     <div>
       <form>
-        <button name="strike" value="strike" onClick={props.update}>
+        <button
+          className="strike"
+          name="strike"
+          value="strike"
+          onClick={props.update}
+        >
           Strike
         </button>
         <button name="ball" value="ball" onClick={props.update}>
